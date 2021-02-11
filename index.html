@@ -19,24 +19,56 @@
   <!-- <button id="myBtn">Click Me</button> -->
   <!-- <button id="btn">Click Me</button> -->
 
-  <h1 id="count">0</h1>
+  <!-- <h1 id="count">0</h1>
   <button id="increment">+</button>
   <button id="decrement">-</button>
 
-  <img src="https://media.giphy.com/media/vaiL8rQ5x22KRConmu/giphy.gif" alt="gif">
+  <img src="https://media.giphy.com/media/vaiL8rQ5x22KRConmu/giphy.gif" alt="gif"> -->
+
+  <!-- <button id="office">The Office</button>
+  <button id="valley">Silicon Valley</button> -->
+
+  <!-- <div id="tv"></div> -->
+
+  <button id="cat">Cat</button>
+
+  <div id="cats"></div>
   <script>
 
-    let count = 0
+    document.getElementById('cat').addEventListener('click', () => {
+      // document.getElementById('cats').innerHTML = `
+      // <img src="https://media.giphy.com/media/ebFG4jcnC1Ny8/giphy.gif" alt="cat">
+      // `
 
-    document.getElementById('increment').addEventListener('click', () => {
-      count++
-      document.getElementById('count').textContent = count
-    })
+      let catElem = document.createElement('img')
+      catElem.src = 'https://media.giphy.com/media/ebFG4jcnC1Ny8/giphy.gif'
+      catElem.alt = 'cat'
 
-    document.getElementById('decrement').addEventListener('click', () => {
-      count--
-      document.getElementById('count').textContent = count
+      document.getElementById('cats').append(catElem)
     })
+    // document.getElementById('office').addEventListener('click', () => {
+    //   document.getElementById('tv').innerHTML = `
+    //     <img src="https://media.giphy.com/media/IwAZ6dvvvaTtdI8SD5/giphy.gif" alt="The Office">
+    //   `
+    // })
+
+    // document.getElementById('valley').addEventListener('click', () => {
+    //   document.getElementById('tv').innerHTML = `
+    //     <img src="https://media.giphy.com/media/26BRpTqZKqnJa6ZXO/giphy.gif" alt="Silicon Valley">
+    //   `
+    // })
+
+    // let count = 0
+
+    // document.getElementById('increment').addEventListener('click', () => {
+    //   count++
+    //   document.getElementById('count').textContent = count
+    // })
+
+    // document.getElementById('decrement').addEventListener('click', () => {
+    //   count--
+    //   document.getElementById('count').textContent = count
+    // })
     // document.getElementById('btn').addEventListener('click', () => {
     //   console.log(Math.random())
     // })
