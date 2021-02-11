@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
 
-  <h1 id="heading">Hello World!</h1>
+  <!-- <h1 id="heading">Hello World!</h1> -->
 
-  <div id="myDiv"></div>
-  
+  <!-- <div id="myDiv"></div> -->
+
   <!-- <div id="myBio"></div> -->
 
   <!-- <button id="myBtn">Click Me</button> -->
-  <button id="btn">Click Me</button>
+  <!-- <button id="btn">Click Me</button> -->
+
+  <h1 id="count">0</h1>
+  <button id="increment">+</button>
+  <button id="decrement">-</button>
   <script>
 
+    let count = 0
+
+    document.getElementById('increment').addEventListener('click', () => {
+      count++
+      document.getElementById('count').textContent = count
+    })
+
+    document.getElementById('decrement').addEventListener('click', () => {
+      count--
+      document.getElementById('count').textContent = count
+    })
     // document.getElementById('btn').addEventListener('click', () => {
     //   console.log(Math.random())
     // })
@@ -44,4 +61,5 @@
 
   </script>
 </body>
+
 </html>
