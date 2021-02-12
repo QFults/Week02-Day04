@@ -6,30 +6,71 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <style>
+    .jumbotron {
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      background-color: #e9ecef;
+      border-radius: .3rem;
+    }
+  </style>
 </head>
 
 <body>
 
-  <form>
-    <p>
-      <label for="message">message</label>
-      <input type="text" id="message">
-    </p>
-    <button id="submit">Submit</button>
-  </form>
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron">
+        <h1 class="display-4">To-Do List App</h1>
+        <p class="lead">This is a simple to-do list application that allows a user to add items to a list.</p>
+        <hr class="my-4">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <form>
+          <div class="mb-3">
+            <label for="text" class="form-label">Item</label>
+            <input type="text" class="form-control" id="text">
+          </div>
+          <button id="addItem" type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+      </div>
+      <div class="col-sm-6">
+        <ul id="items" class="list-group">
+          <li class="list-group-item">Take out trash</li>
+          <li class="list-group-item">Cook dinner</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <h1 id="msg"></h1>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
   <script>
 
-
-
-    document.getElementById('submit').addEventListener('click', event => {
+    document.getElementById('addItem').addEventListener('click', event => {
       event.preventDefault()
-      console.log(document.getElementById('message').value)
-      document.getElementById('msg').textContent = document.getElementById('message').value
-      
-      document.getElementById('message').value = ''
+
+      let itemElem = document.createElement('li')
+      itemElem.className = 'list-group-item item'
+      itemElem.textContent = document.getElementById('text').value
+      document.getElementById('items').append(itemElem)
+      document.getElementById('text').value = ''
     })
+
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('item') && event.target.classList.contains('active')) {
+        event.target.classList.remove('active')
+      } else if (event.target.classList.contains('item') && !event.target.classList.contains('active')) {
+        event.target.classList.add('active')
+      }
+    })
+
   </script>
 </body>
 
