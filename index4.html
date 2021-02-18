@@ -9,8 +9,9 @@
 </head>
 
 <body>
+ 
 
-  <div id="title"></div>
+  <div id="title"><button id="start">Start</button></div>
   <div id="choices"></div>
 
   <script>
@@ -27,18 +28,24 @@
       {
         title: 'Whats Up World',
         choices: ['i', 'j', 'k', 'l']
+      },
+      {
+        title: 'Oh No World',
+        choices: ['m', 'n', 'o', 'p']
       }
     ]
 
     let count = 0
 
-    document.getElementById('title').textContent = arr[0].title
-    document.getElementById('choices').innerHTML = `
+    document.getElementById('start').addEventListener('click', () => {
+      document.getElementById('title').textContent = arr[0].title
+      document.getElementById('choices').innerHTML = `
       <button class="choice">${arr[0].choices[0]}</button>
       <button class="choice">${arr[0].choices[1]}</button>
       <button class="choice">${arr[0].choices[2]}</button>
       <button class="choice">${arr[0].choices[3]}</button>
-    `
+      `
+    })
 
     document.addEventListener('click', event => {
       if (event.target.className === 'choice') {
