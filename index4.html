@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="title"></div>
+  <div id="choices"></div>
+
+  <script>
+
+    let arr = [
+      {
+        title: 'Hello World',
+        choices: ['a', 'b', 'c', 'd']
+      },
+      {
+        title: 'Goodbye World',
+        choices: ['e', 'f', 'g', 'h']
+      },
+      {
+        title: 'Whats Up World',
+        choices: ['i', 'j', 'k', 'l']
+      }
+    ]
+
+    let count = 0
+
+    document.getElementById('title').textContent = arr[0].title
+    document.getElementById('choices').innerHTML = `
+      <button class="choice">${arr[0].choices[0]}</button>
+      <button class="choice">${arr[0].choices[1]}</button>
+      <button class="choice">${arr[0].choices[2]}</button>
+      <button class="choice">${arr[0].choices[3]}</button>
+    `
+
+    document.addEventListener('click', event => {
+      if (event.target.className === 'choice') {
+        count++
+        document.getElementById('title').textContent = arr[count].title
+        document.getElementById('choices').innerHTML = `
+      <button class="choice">${arr[count].choices[0]}</button>
+      <button class="choice">${arr[count].choices[1]}</button>
+      <button class="choice">${arr[count].choices[2]}</button>
+      <button class="choice">${arr[count].choices[3]}</button>
+    `
+      }
+    })
+
+  </script>
+</body>
+
+</html>
